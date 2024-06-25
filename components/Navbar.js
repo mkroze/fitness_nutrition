@@ -1,3 +1,5 @@
+import {  SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 import Link from 'next/link'
 const NavBar = () => {
   const navigation = [
@@ -59,11 +61,13 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="avatar">
-          <div className="w-12 rounded-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
+      <SignedOut>
+            <SignInButton className="btn btn-primary"/>
+          </SignedOut>
+          <SignedIn>
+            <UserButton className="w-12"/>
+          </SignedIn>
+      
       </div>
     </div>
   );
